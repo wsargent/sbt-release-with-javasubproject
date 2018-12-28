@@ -32,13 +32,26 @@ lazy val `scala-project` = (project in file("scala-project"))
     crossScalaVersions := bothScalaVersions
   )
 
+import ReleaseTransformations._
 lazy val root = (project in file("."))
   .settings(disablePublishing)
   .settings(
     name := "publish-with-java-project",
-    releaseCrossBuild := true, // must be set in root project
-    crossScalaVersions := List(scala212, scala211), // set crossScalaVersions to Nil
-    //crossScalaVersions := Nil, // set crossScalaVersions to Nil
+    releaseCrossBuild := false,
+    crossScalaVersions := Nil, // set crossScalaVersions to Nil
+    releaseProcess := Seq[ReleaseStep](
+      checkSnapshotDependencies,
+      inquireVersions,
+      runClean,
+      releaseStepCommandAndRemaining("+test"),
+      setReleaseVersion,
+      commitReleaseVersion,
+      tagRelease,
+      releaseStepCommandAndRemaining("+publish"),
+      setNextVersion,
+      commitNextVersion,
+      // pushChanges
+    )
   )
   .aggregate(
     `java-project`,
