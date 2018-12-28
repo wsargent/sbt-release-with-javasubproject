@@ -5,5 +5,7 @@ class Bar {
 }
 
 object Bar {
-  def apply(): Bar = new Bar
+  def apply(): Bar = {
+    new Bar
+  }
 }
