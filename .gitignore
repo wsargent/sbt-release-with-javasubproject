@@ -15,3 +15,4 @@ project/plugins/project/
 logs/
 *.log
 application.json
+release-repo
