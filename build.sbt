@@ -38,7 +38,7 @@ lazy val root = (project in file("."))
     name := "publish-with-java-project",
     //logLevel := Level.Debug,
     releaseCrossBuild := true, // must be set in root project
-    crossScalaVersions := Nil, // set crossScalaVersions to Nil
+    crossScalaVersions := List(scala212, scala211), // set crossScalaVersions to Nil
   )
   .aggregate(
     `java-project`,

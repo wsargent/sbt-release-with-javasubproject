@@ -15,7 +15,7 @@ object CommonSettings extends AutoPlugin {
 
   override lazy val projectSettings = Seq(
     // Make sure we publish locally so we don't scribble over the data
-    //publishMavenStyle := true,
+    publishMavenStyle := true,
     //isSnapshot := false,
     javacOptions in (Compile, doc) ++= javacSettings,
     javacOptions in Test ++= javacSettings,
