@@ -21,7 +21,7 @@ object CommonSettings extends AutoPlugin {
     javacOptions in Test ++= javacSettings,
     publishConfiguration := publishConfiguration.value.withOverwrite(false),
     publishTo := Some(
-      Resolver.file("file", new File(baseDirectory.value + "release-repo"))),
+      Resolver.file("file", new File(baseDirectory.value + "/release-repo"))),
     // docker pull docker.bintray.io/jfrog/artifactory-oss:latest
     // docker run --name artifactory -d -p 8081:8081 docker.bintray.io/jfrog/artifactory-oss:latest
     // open browser to http://localhost:8081/
