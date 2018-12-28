@@ -32,7 +32,6 @@ lazy val `scala-project` = (project in file("scala-project"))
     crossScalaVersions := bothScalaVersions
   )
 
-import ReleaseTransformations._
 lazy val root = (project in file("."))
   .settings(disablePublishing)
   .settings(
